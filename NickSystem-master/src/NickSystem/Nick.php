@@ -8,17 +8,17 @@ use pocketmine\Player;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\command\CommandExecutor;
-use pocketmine\utils\TextFormat as C;
+use pocketmine\utils\TextFormat as MHD;
 
 class Main extends PluginBase {
   
   public $nicks = ["TeletubbieAndrew", "OhneLimitHD", "LifeRusherHD", "WolfMasterHD", "LegitGamerHD", "UnLegitGamerHD", "LeqitRusherYT", "UnlqeitRusherYT"];
   
   public function onEnable(){
-    $this->getLogger()->info(C::GREEN."Aktiviert!");
+    $this->getLogger()->info(MHD::GREEN."Aktiviert!");
   }
   public function onDisable(){
-    $this->getLogger()->info(C::RED."Deaktiviert!");
+    $this->getLogger()->info(MHD::RED."Deaktiviert!");
   }
   public function action_nick_on($player){
 		if(count($this->nicks) === 1){
@@ -27,10 +27,10 @@ class Main extends PluginBase {
 			$pName = $player->getDisplayName();
 			unset($this->nicks[0]);
 			$this->nicks = array_values($this->nicks);
-			$player->sendMessage(C::BOLD.C::GRAY."[".C::GREEN."NickSystem".C::GRAY."]".C::YELLOW."Dein Nickname ist ".C::BLUE.$player->getDisplayName().C::YELLOW."!");
+			$player->sendMessage(MHD::BOLD.MHD::GRAY."[".MHD::GREEN."NickSystem".MHD::GRAY."]".MHD::YELLOW."Dein Nickname ist ".MHD::BLUE.$player->getDisplayName().MHD::YELLOW."!");
 		}
 		elseif(count($this->nicks) === 0){
-			$player->sendMessage(C::BOLD.C::GRAY."[".C::GREEN."NickSystem".C::GRAY."]".C::RED."Kein Nickname verfuegbar!");
+			$player->sendMessage(MHD::BOLD.MHD::GRAY."[".MHD::GREEN."NickSystem".MHD::GRAY."]".MHD::RED."Kein Nickname verfuegbar!");
 		}
 		else{
 			$nickNum = mt_rand(0, count($this->nicks)-1);
@@ -39,7 +39,7 @@ class Main extends PluginBase {
 			$pName2 = $player->getDisplayName();
 			unset($this->nicks[$nickNum]);
 			$this->nicks = array_values($this->nicks);
-			$player->sendMessage(C::BOLD.C::GRAY."[".C::GREEN."NickSystem".C::GRAY."]".C::YELLOW."Dein Nickname ist ".C::BLUE.$player->getDisplayName().C::YELLOW."!");
+			$player->sendMessage(MHD::BOLD.MHD::GRAY."[".MHD::GREEN."NickSystem".MHD::GRAY."]".MHD::YELLOW."Dein Nickname ist ".MHD::BLUE.$player->getDisplayName().MHD::YELLOW."!");
 		}
 	}
 	public function action_nick_off($player){
